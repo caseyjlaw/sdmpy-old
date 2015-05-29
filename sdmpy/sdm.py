@@ -23,7 +23,7 @@ class SDM(object):
         self._tables = {}
         asdm = etree.parse(path+'/ASDM.xml').getroot()
         for tab in asdm.iter('Table'):
-            name = tab.find('Name').text
+            name = tab.find('Name').text.strip()
             nrows = int(tab.find('NumberRows').text)
             if nrows>0:
                 try:
